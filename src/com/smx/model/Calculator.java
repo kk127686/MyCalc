@@ -1,5 +1,6 @@
 package com.smx.model;
 
+import com.smx.Compute;
 import com.smx.Constant;
 
 import java.awt.*;
@@ -30,14 +31,14 @@ public class Calculator {
     }
 
     public String getCurrentData(){
-        return stackToString();
+        return stackToString(data1);
     }
 
-    public String stackToString(){
-        if(!data1.isEmpty()){
+    public String stackToString(Stack<Character> stack){
+        if(!stack.isEmpty()){
             StringBuffer buf=new StringBuffer();
-            for(int i=0;i<data1.size();i++){
-                buf.append(data1.get(i));
+            for(int i=0;i<stack.size();i++){
+                buf.append(stack.get(i));
             }
             return new String(buf);
         }else{
@@ -85,7 +86,22 @@ public class Calculator {
             this.result=x1/x2;
         }
     }
+    public void insertOperator(Character character){
+        data1.add(0,character);
+    }
     public void changeOperator(Character character){
         data1.set(current_size-1,character);
+    }
+    public void toZhengshu(){
+        data1.remove(0);
+    }
+    public void updateResStack(String values){
+        char[] arrays=values.toCharArray();
+        for(int i=0;i<arrays.length;i++){
+            data2.add(arrays[i]);
+        }
+    }
+    public String getResString(){
+        return stackToString(data2);
     }
 }

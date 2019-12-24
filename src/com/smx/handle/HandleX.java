@@ -4,12 +4,12 @@ import com.smx.view.CalcWin;
 
 import java.awt.event.ActionEvent;
 
-public class HandleSqrt extends HandleEvent {
+public class HandleX extends HandleEvent {
     private String old_str;
     private Double result;
     private char cmd;
     private char[] array;
-    public HandleSqrt(CalcWin calcWin) {
+    public HandleX(CalcWin calcWin) {
         super(calcWin);
     }
 
@@ -19,9 +19,9 @@ public class HandleSqrt extends HandleEvent {
         cmd=e.getActionCommand().charAt(0);
         calcWin.calculator.insertOperator(cmd);
         old_str=calcWin.calc_input_text.getText().trim();
-        result=Math.sqrt(Double.parseDouble(old_str));
-        array=result.toString().toCharArray();
+        result=1/Double.parseDouble(old_str);
         calcWin.calculator.dataClear();
+        array=result.toString().toCharArray();
         for(int i=0;i<array.length;i++){
             calcWin.calculator.pushCurrent(array[i]);
         }

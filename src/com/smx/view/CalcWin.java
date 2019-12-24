@@ -179,6 +179,9 @@ public class CalcWin extends JFrame {
       for(int i=0;i<4;i++){
           btnOp[i].addActionListener(new HandleOperator(this));
       }
+      btn_sqrt.addActionListener(new HandleSqrt(this));
+      btn_x.addActionListener(new HandleX(this));
+      btn_zhengfu.addActionListener(new HandleZhengfu(this));
       btn_dot.addActionListener(new HandleDot(this));
       btn_equal.addActionListener(new HandleEqual(this));
       btn_save.addActionListener(new HandleSave(this));
